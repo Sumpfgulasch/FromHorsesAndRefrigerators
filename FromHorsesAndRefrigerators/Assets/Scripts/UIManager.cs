@@ -15,16 +15,24 @@ public class UIManager : MonoBehaviour
     private CanvasGroup ActiveScreen => screens[activeScreenInt];
     private CanvasGroup NextScreen => screens[activeScreenInt + 1];
 
+    public List<string> serverData;
 
     void Start()
     {
+        //beispiel
+        //lol kommentar auf deutsch
+        DataLoadingAndSaving.RequestDatafromServer();
+        DataLoadingAndSaving.OnDataRequestComplete += () =>
+        {
+            serverData = DataLoadingAndSaving.GetAllEntriesfromKey("1");
+        };
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void FadeToNextScreen()
