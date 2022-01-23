@@ -48,6 +48,7 @@ public static class DataLoadingAndSaving
 				{ 
 					Debug.Log("No such key");
 					recoveredValue = string.Empty;
+					OnDataRecovered?.Invoke();
 
 				}
 				else
