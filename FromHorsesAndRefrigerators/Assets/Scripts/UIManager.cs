@@ -51,14 +51,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         ActiveScreenInt = Array.FindIndex(screens, x => x.gameObject.activeInHierarchy);
-
-        //beispiel
-        //lol kommentar auf deutsch
         DataLoadingAndSaving.RequestDatafromServer();
-        DataLoadingAndSaving.OnDataRequestComplete += () =>
-        {
-            serverData = DataLoadingAndSaving.GetAllEntriesfromKey("1");
-        };
 
     }
 
