@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,11 @@ using TMPro;
 public class ResultBoxHandler: MonoBehaviour
 {
     public List<ResultBox> resultBoxes;
+
+    private void OnEnable()
+    {
+	    PopulateresultBoxes();
+    }
 
     public void PopulateresultBoxes()
     {
@@ -17,7 +23,7 @@ public class ResultBoxHandler: MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.K)) 
+		if (Input.GetKeyDown(KeyCode.K))
 		{
 			PopulateresultBoxes();
 		}

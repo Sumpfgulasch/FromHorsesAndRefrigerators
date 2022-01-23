@@ -70,28 +70,28 @@ MonoBehaviour:
   chapters:
   - ChapterID: 1
     StoryText: 'Once upon a time there was a Chinese farmer whose horse ran away. '
-    ShortStoryText: The horse run away
+    ShortStoryText: 1. The horse run away
     PlayerShortAnswer: 
     PlayerLongAnswer: 
-    VoiceOver: {fileID: 0}
+    VoiceOver: {fileID: 8300000, guid: 69cb960fe63b2bd4f90c70c112c0f30e, type: 3}
   - ChapterID: 2
     StoryText: 'The next day the horse came back bringing seven wild horses with
       it, '
-    ShortStoryText: The horse brought more horses back.
+    ShortStoryText: 2. The horse brought more horses back.
     PlayerShortAnswer: 
     PlayerLongAnswer: 
-    VoiceOver: {fileID: 0}
+    VoiceOver: {fileID: 8300000, guid: 71b891b8bb04b844daee37e58f854862, type: 3}
   - ChapterID: 3
     StoryText: The following day his son tried to break one of the horses, and while
       riding it, he was thrown and broke his leg
-    ShortStoryText: Farmer's son broke his leg.
+    ShortStoryText: 3. Farmer's son broke his leg.
     PlayerShortAnswer: 
     PlayerLongAnswer: 
-    VoiceOver: {fileID: 0}
+    VoiceOver: {fileID: 8300000, guid: 5f08be1c4a091cc4695b14448ce2486f, type: 3}
   - ChapterID: 4
     StoryText: The next day the conscription officers came around to conscript people
       into the army, and they rejected his son because he had a broken leg.
-    ShortStoryText: The son didn't have to go to the army.
+    ShortStoryText: 4. The son didn't have to go to the army.
     PlayerShortAnswer: 
     PlayerLongAnswer: 
-    VoiceOver: {fileID: 0}
+    VoiceOver: {fileID: 8300000, guid: 67242d04929881f4c95295c7fdc8bc4e, type: 3}
