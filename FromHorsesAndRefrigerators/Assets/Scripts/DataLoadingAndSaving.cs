@@ -15,12 +15,12 @@ public static class DataLoadingAndSaving
 	private static string splitMark = "/r/";
 
 	public delegate void TaskCompletedCallBack(string taskResult);
-	
-	public static void RequestDatafromServer() 
+
+	public static void RequestDatafromServer()
 	{
 		GetAllTitleData();
 	}
-	
+
 
 	public static void SetTitleData(string keyToSet, string valueToSet)
 	{
@@ -90,9 +90,9 @@ public static class DataLoadingAndSaving
 		};
 	}
 
-	public static List<string> GetAllEntriesfromKey( string key)
+	public static List<string> GetAllEntriesfromKey(string key)
 	{
-		if (serverData == null || serverData.Count == 0) 
+		if (serverData == null || serverData.Count == 0)
 		{
 			Debug.Log("Server Data empty");
 		}
@@ -109,5 +109,42 @@ public static class DataLoadingAndSaving
 		return converted;
 	}
 
+	public static List<string> GetRandomEntriesFromKey(string key, int desiredCount)
+	{
+		Debug.Log("Getting random entries:" + desiredCount);
+		if (!serverData.ContainsKey(key)) 
+		{
+			Debug.Log("No such key on server");
+			return null;
+		}
+
+		// if there are less entries on the server than requested return all
+		List<string> allEntries = GetAllEntriesfromKey(key);
+
+		if (allEntries.Count <= desiredCount) 
+		{
+			Debug.Log("Less entries on server than required, returning all");
+			return allEntries;
+		}
+
+
+		//get random entries
+		HashSet<int> randomNumbers = new HashSet<int>();
+		List<string> randomEntries = new List<string>();
+
+		while (randomNumbers.Count < desiredCount) 
+		{
+			randomNumbers.Add(Random.Range(0, allEntries.Count));
+		}
+
+		foreach (int randomNumber in randomNumbers) {
+			randomEntries.Add(allEntries[randomNumber]);
+		}
+
+		Debug.Log("Returning entries. count: " + randomEntries.Count);
+		return randomEntries;
+	}
+
+	
 
 }
