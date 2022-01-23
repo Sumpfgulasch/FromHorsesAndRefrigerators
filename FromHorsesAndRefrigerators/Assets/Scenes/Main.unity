@@ -360,8 +360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1024.5914, y: 198.5416}
+  m_AnchoredPosition: {x: 0, y: -148.292}
+  m_SizeDelta: {x: 1024.591, y: 495.126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266550314
 MonoBehaviour:
@@ -387,10 +387,11 @@ MonoBehaviour:
 
 
     Please act as honest
-    as possible.
+    as possible. Your answers will be shown to other people!
 
 
-    Your answers will be shown to other people!'
+    Please turn on
+    your audio!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29e8d023fab1e784cb18dd6839695e78, type: 2}
   m_sharedMaterial: {fileID: 9058612404359299751, guid: 29e8d023fab1e784cb18dd6839695e78, type: 2}
@@ -1510,7 +1511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1052697378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1573,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1128438545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2076,6 +2077,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1439356410}
     m_Modifications:
+    - target: {fileID: 268406945550571357, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268406945550571357, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 994826255013093724, guid: e72feb1f30a58c640803296b055e1413, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2579,6 +2588,22 @@ PrefabInstance:
     - target: {fileID: 6432971035649534818, guid: e72feb1f30a58c640803296b055e1413, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -465.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336978664997440450, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1514.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336978664997440450, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 148.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336978664997440450, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336978664997440450, guid: e72feb1f30a58c640803296b055e1413, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 489
       objectReference: {fileID: 0}
     - target: {fileID: 7612032772846209277, guid: e72feb1f30a58c640803296b055e1413, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3232,6 +3257,10 @@ PrefabInstance:
       propertyPath: screens.Array.data[16]
       value: 
       objectReference: {fileID: 2041798120}
+    - target: {fileID: 5002859148652696117, guid: d3a44b5c33f1002468688581166af735, type: 3}
+      propertyPath: chapters.Array.data[0].ShortStoryText
+      value: 1. The horse run away.
+      objectReference: {fileID: 0}
     - target: {fileID: 5002859148652696118, guid: d3a44b5c33f1002468688581166af735, type: 3}
       propertyPath: m_RootOrder
       value: 4
