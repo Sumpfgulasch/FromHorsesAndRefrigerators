@@ -8,6 +8,7 @@ using Task = System.Threading.Tasks.Task;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
     public CanvasGroup[] screens;
     public float FadeScreenTime = 0.2f;
 
@@ -19,6 +20,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
+
         //beispiel
         //lol kommentar auf deutsch
         DataLoadingAndSaving.RequestDatafromServer();
@@ -32,7 +35,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void FadeToNextScreen()
