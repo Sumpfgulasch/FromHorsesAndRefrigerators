@@ -1,18 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     public Action OnAudioFinished;
 
-    public AudioClip[] VoiceOvers;
-    private AudioSource voiceOver, music, sfx;
+    [HideInInspector] public AudioSource voiceOver; //, music, sfx;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
-        voiceOver = new AudioSource();
-        //voiceOver.clip
+        //instance = this;
+        voiceOver = this.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame

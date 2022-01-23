@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
@@ -11,17 +14,44 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     public CanvasGroup[] screens;
     public float FadeScreenTime = 0.2f;
+    public float WaitBeforeVoiceOver = 0.3f;
+    public float WaitAfterVoiceOver = 0.7f;
 
-    private int activeScreenInt = 0;
-    private CanvasGroup ActiveScreen => screens[activeScreenInt];
-    private CanvasGroup NextScreen => screens[activeScreenInt + 1];
+    [HideInInspector] public int ActiveScreenInt = 0;
+
+    private int _activeChapter = 0;
+    public int ActiveChapter
+    {
+        get
+        {
+            var parentName = transform.parent.name;
+            if (parentName.Contains("Chapter"))
+            {
+                var number = parentName[^2].ToString();
+                _activeChapter = int.Parse(parentName);
+                return _activeChapter;
+            }
+            _activeChapter = 0;
+            return 0;
+        }
+        set => _activeChapter = value;
+    }
+
+    private CanvasGroup ActiveScreen => screens[ActiveScreenInt];
+    private CanvasGroup NextScreen => screens[ActiveScreenInt + 1];
 
     public List<string> serverData;
 
     public List<Chapter> chapters;
-    void Start()
+
+    private void Awake()
     {
         Instance = this;
+    }
+
+    void Start()
+    {
+        ActiveScreenInt = Array.FindIndex(screens, x => x.gameObject.activeInHierarchy);
 
         //beispiel
         //lol kommentar auf deutsch
@@ -41,26 +71,23 @@ public class UIManager : MonoBehaviour
 
     public void FadeToNextScreen()
     {
-        NextScreen.gameObject.SetActive(true);
-        NextScreen.alpha = 0;
+        // NextScreen.gameObject.SetActive(true);
+        // NextScreen.alpha = 0;
         FadeToNextCanvasGroup();
 
     }
 
-    // async Task Test()
-    // {
-    //     await Task.Yield();
-    // }
-
     private void FadeToNextCanvasGroup()
     {
-        StartCoroutine(FadeCanvasGroup(screens[activeScreenInt], 1, 0, FadeScreenTime, true, () =>
-            StartCoroutine(FadeCanvasGroup(screens[activeScreenInt], 0, 1, FadeScreenTime))));
+        StartCoroutine(FadeCanvasGroup(screens[ActiveScreenInt], 1, 0, FadeScreenTime, true, () =>
+            StartCoroutine(FadeCanvasGroup(screens[ActiveScreenInt], 0, 1, FadeScreenTime))));
     }
 
 
     private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startValue, float targetValue, float time, bool disableWhenFinished = false, Action callback = null)
     {
+        canvasGroup.gameObject.SetActive(true);
+
         float timer = 0;
         while (timer < time)
         {
@@ -76,7 +103,7 @@ public class UIManager : MonoBehaviour
 
         if (callback != null)
         {
-            activeScreenInt++;
+            ActiveScreenInt++;
             callback.Invoke();
         }
 
