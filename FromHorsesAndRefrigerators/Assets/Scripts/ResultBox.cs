@@ -50,11 +50,12 @@ public class ResultBox : MonoBehaviour
 
 
         ShortAnswerInfoText.text =
-            "You have answered:" + shortAnswerMeaning + " togther with" + percentToDisplay + "% of players."; 
+            "You have answered: " + "<b><u>"+shortAnswerMeaning +"</b><//u>" + " togther with " + percentToDisplay + "% of players, saying "; 
 
         // your long answer
-        YourLongAnswer.text = chapter.PlayerLongAnswer;
+        YourLongAnswer.text = $"<i>\"{chapter.PlayerLongAnswer}\"</i>";
         // other answers
+
         List<string> otherPeoplesRandomAnswers = DataLoadingAndSaving.GetRandomEntriesFromKey(chapter.ServerLongAnswerKey, 3);
         string OtherAnswers = string.Empty;
 
@@ -62,6 +63,7 @@ public class ResultBox : MonoBehaviour
         {
             OtherAnswers += (i + 1).ToString() + "." + otherPeoplesRandomAnswers[i] + "/n";
         }
+
     }
 
 	public float GetPercentOfPositiveAnswersforChapter(Chapter chapter)
@@ -70,7 +72,12 @@ public class ResultBox : MonoBehaviour
         List<string> allAnswers = DataLoadingAndSaving.GetAllEntriesfromKey(chapter.ServerShortAnswerKey);
 
         // convert to int list and add own answer
-        List<int> answersAsInts = (List<int>)allAnswers.Select(str => int.Parse(str));
+        List<int> answersAsInts = new List<int>();
+        if (allAnswers != null)
+        {
+            answersAsInts = (List<int>)allAnswers.Select(str => int.Parse(str));
+        }
+
         answersAsInts.Add(int.Parse(chapter.PlayerShortAnswer));
         float sum = answersAsInts.Sum();
 

@@ -13,4 +13,16 @@ public class Chapter
 	public string PlayerShortAnswer;
 	public string PlayerLongAnswer;
 	public AudioClip VoiceOver;
+
+	public void SaveShortAnswer(string answer) 
+	{
+		PlayerShortAnswer = answer;
+		DataLoadingAndSaving.AddEntryToKey(ServerShortAnswerKey, answer);
+	}
+
+	public void SaveLongAnswer(string answer) 
+	{
+		PlayerLongAnswer = answer;
+		DataLoadingAndSaving.AddEntryToKey(ServerLongAnswerKey, answer);
+	}
 }
