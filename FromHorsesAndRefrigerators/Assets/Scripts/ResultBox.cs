@@ -9,7 +9,7 @@ public class ResultBox : MonoBehaviour
 {
     public TextMeshProUGUI StoryText;
     public TextMeshProUGUI ShortAnswerInfoText;
-    public TextMeshProUGUI YourLongAnswer;
+    //public TextMeshProUGUI YourLongAnswer;
     public TextMeshProUGUI OtherLongAnswers;
 
     private float percentOfPositiveAnswers;
@@ -50,19 +50,27 @@ public class ResultBox : MonoBehaviour
 
 
         ShortAnswerInfoText.text =
-            "You have answered: " + "<b><u>"+shortAnswerMeaning +"</b><//u>" + " togther with " + percentToDisplay + "% of players, saying "; 
+            "You have answered: " + "<b><u>"+shortAnswerMeaning +"</b></u>" + " togther with " + percentToDisplay + "% of players, saying: \n" +
+            $"<i>\"{chapter.PlayerLongAnswer}\"</i>"; 
 
         // your long answer
-        YourLongAnswer.text = $"<i>\"{chapter.PlayerLongAnswer}\"</i>";
-        // other answers
+        //YourLongAnswer.text = $"<i>\"{chapter.PlayerLongAnswer}\"</i>";
 
-        List<string> otherPeoplesRandomAnswers = DataLoadingAndSaving.GetRandomEntriesFromKey(chapter.ServerLongAnswerKey, 3);
+        // other answers
+        List<string> otherPeoplesRandomAnswers = new List<string>();
+        otherPeoplesRandomAnswers = DataLoadingAndSaving.GetRandomEntriesFromKey(chapter.ServerLongAnswerKey, 3);
         string OtherAnswers = string.Empty;
 
-        for (int i = 0; i < otherPeoplesRandomAnswers.Count; i++)
+        if (otherPeoplesRandomAnswers != null)
         {
-            OtherAnswers += (i + 1).ToString() + "." + otherPeoplesRandomAnswers[i] + "/n";
+            for (int i = 0; i < otherPeoplesRandomAnswers.Count; i++)
+            {
+                OtherAnswers += (i + 1).ToString() + "." + otherPeoplesRandomAnswers[i] + "/n";
+            }
         }
+
+        OtherLongAnswers.text = OtherAnswers;
+        
 
     }
 

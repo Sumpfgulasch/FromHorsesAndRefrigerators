@@ -9,7 +9,7 @@ public class ResultBoxHandler: MonoBehaviour
 
     public void PopulateresultBoxes()
     {
-		for (int i = 0; i < UIManager.Instance.chapters.Count - 1; i++)
+		for (int i = 0; i < UIManager.Instance.chapters.Count; i++)
 		{
 			resultBoxes[i]?.PopulateForChapter(UIManager.Instance.chapters[i]);
 		}
