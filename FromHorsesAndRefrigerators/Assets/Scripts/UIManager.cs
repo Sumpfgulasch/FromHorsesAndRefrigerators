@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
 
     public List<string> serverData;
 
+    public List<Chapter> chapters;
     void Start()
     {
         Instance = this;
