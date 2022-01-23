@@ -6,11 +6,11 @@ using UnityEngine;
 public class Chapter
 {
 	public int ChapterID;
-	public string SotryText;
-	private  int serverShortAnswerKey;
-	private int serverLongAnswerKey;
+	public string StoryText;
+	public string ShortStoryText;
+	public string ServerShortAnswerKey { get { return "Short" + ChapterID; } }
+	public string ServerLongAnswerKey { get { return "Long" + ChapterID; } }
 	public string PlayerShortAnswer;
 	public string PlayerLongAnswer;
 	public AudioClip VoiceOver;
-
 }

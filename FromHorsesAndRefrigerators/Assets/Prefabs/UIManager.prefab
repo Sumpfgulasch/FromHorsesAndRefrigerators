@@ -44,5 +44,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755fd0882616b174fb96c46cd3dc6441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screens: []
+  screens:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   FadeScreenTime: 0.2
+  WaitBeforeVoiceOver: 0.3
+  WaitAfterVoiceOver: 0.7
+  ActiveScreenInt: 0
+  serverData: []
+  chapters:
+  - ChapterID: 1
+    StoryText: 'Once upon a time there was a Chinese farmer whose horse ran away. '
+    ShortStoryText: The horse run away
+    PlayerShortAnswer: 
+    PlayerLongAnswer: 
+    VoiceOver: {fileID: 0}
+  - ChapterID: 2
+    StoryText: 'The next day the horse came back bringing seven wild horses with
+      it, '
+    ShortStoryText: The horse brought more horses back.
+    PlayerShortAnswer: 
+    PlayerLongAnswer: 
+    VoiceOver: {fileID: 0}
+  - ChapterID: 3
+    StoryText: The following day his son tried to break one of the horses, and while
+      riding it, he was thrown and broke his leg
+    ShortStoryText: Farmer's son broke his leg.
+    PlayerShortAnswer: 
+    PlayerLongAnswer: 
+    VoiceOver: {fileID: 0}
+  - ChapterID: 4
+    StoryText: The next day the conscription officers came around to conscript people
+      into the army, and they rejected his son because he had a broken leg.
+    ShortStoryText: The son didn't have to go to the army.
+    PlayerShortAnswer: 
+    PlayerLongAnswer: 
+    VoiceOver: {fileID: 0}

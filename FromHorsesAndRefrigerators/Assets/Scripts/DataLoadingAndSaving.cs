@@ -44,7 +44,12 @@ public static class DataLoadingAndSaving
 		PlayFabServerAPI.GetTitleData(new GetTitleDataRequest(),
 			result =>
 			{
-				if (result.Data == null || !result.Data.ContainsKey(keyToGet)) Debug.Log("No such key");
+				if (result.Data == null || !result.Data.ContainsKey(keyToGet)) 
+				{ 
+					Debug.Log("No such key");
+					recoveredValue = string.Empty;
+
+				}
 				else
 				{
 					Debug.Log("Matching key found");
@@ -144,7 +149,5 @@ public static class DataLoadingAndSaving
 		Debug.Log("Returning entries. count: " + randomEntries.Count);
 		return randomEntries;
 	}
-
-	
 
 }
