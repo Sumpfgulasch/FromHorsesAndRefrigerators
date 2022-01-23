@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.VersionControl;
@@ -107,20 +108,21 @@ public class UIManager : MonoBehaviour
 
     }
 
-    // private IEnumerator FadeScreens(CanvasGroup canvasGroup1, CanvasGroup canvasGroup2, float time)
-    // {
-    //     float timer = 0;
-    //     //float startValue = canvasGroup1
-    //     while (timer < time)
-    //     {
-    //         timer += Time.deltaTime;
-    //         float value = Mathf.Lerp(startValue, targetValue, timer / time);
-    //         canvasGroup1.alpha = value;
-    //         yield return null;
-    //     }
-    //     canvasGroup.alpha = targetValue;
-    //
-    //
-    // }
+    public void SaveChoiceFortune()
+    {
+        chapters[ActiveChapter].SaveShortAnswer("1");
+    }
+
+    public void SaveChoiceMisfortune()
+    {
+        chapters[ActiveChapter].SaveShortAnswer("0");
+    }
+
+    public void SaveText()
+    {
+        var input = ActiveScreen.GetComponentInChildren<TMP_InputField>().text;
+        Debug.Log("input: " + input);
+        chapters[ActiveChapter].SaveLongAnswer(input);
+    }
 
 }
