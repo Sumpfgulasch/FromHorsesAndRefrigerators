@@ -3116,6 +3116,22 @@ PrefabInstance:
       propertyPath: screens.Array.data[16]
       value: 
       objectReference: {fileID: 2041798120}
+    - target: {fileID: 5002859148652696117, guid: d3a44b5c33f1002468688581166af735, type: 3}
+      propertyPath: chapters.Array.data[0].VoiceOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 69cb960fe63b2bd4f90c70c112c0f30e, type: 3}
+    - target: {fileID: 5002859148652696117, guid: d3a44b5c33f1002468688581166af735, type: 3}
+      propertyPath: chapters.Array.data[1].VoiceOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 71b891b8bb04b844daee37e58f854862, type: 3}
+    - target: {fileID: 5002859148652696117, guid: d3a44b5c33f1002468688581166af735, type: 3}
+      propertyPath: chapters.Array.data[2].VoiceOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f08be1c4a091cc4695b14448ce2486f, type: 3}
+    - target: {fileID: 5002859148652696117, guid: d3a44b5c33f1002468688581166af735, type: 3}
+      propertyPath: chapters.Array.data[3].VoiceOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 67242d04929881f4c95295c7fdc8bc4e, type: 3}
     - target: {fileID: 5002859148652696118, guid: d3a44b5c33f1002468688581166af735, type: 3}
       propertyPath: m_RootOrder
       value: 4
