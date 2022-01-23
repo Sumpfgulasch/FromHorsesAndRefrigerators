@@ -12,13 +12,12 @@ public class NextScreenAfterAudio : MonoBehaviour
 
     private IEnumerator PlayAndNextScreen()
     {
-        Debug.Log(AudioManager.instance.voiceOver.isPlaying);
         if (AudioManager.instance.voiceOver.isPlaying)
             AudioManager.instance.voiceOver.Stop();
 
         yield return new WaitForSeconds(UIManager.Instance.WaitBeforeVoiceOver);
 
-        var clip = UIManager.Instance.chapters[UIManager.Instance.ActiveScreenInt].VoiceOver;
+        var clip = UIManager.Instance.chapters[UIManager.Instance.ActiveChapter].VoiceOver;
         if (clip != null)
         {
             AudioManager.instance.voiceOver.clip = clip;

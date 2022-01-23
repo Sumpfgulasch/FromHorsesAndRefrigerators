@@ -24,14 +24,12 @@ public class UIManager : MonoBehaviour
     {
         get
         {
-            var parentName = transform.parent.name;
+            var parentName = ActiveScreen.GetComponent<RectTransform>().parent.name;
             if (parentName.Contains("Chapter"))
             {
-                var number = parentName[^2].ToString();
-                _activeChapter = int.Parse(parentName);
-                return _activeChapter;
+                var number = parentName[^1].ToString();
+                return int.Parse(number) - 1;
             }
-            _activeChapter = 0;
             return 0;
         }
         set => _activeChapter = value;
