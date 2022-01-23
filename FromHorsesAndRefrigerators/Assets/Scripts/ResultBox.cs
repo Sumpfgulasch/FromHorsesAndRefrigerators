@@ -38,13 +38,13 @@ public class ResultBox : MonoBehaviour
 
         if (chapter.PlayerShortAnswer == "1") 
         {
-            shortAnswerMeaning = "positive";
+            shortAnswerMeaning = "lucky";
             percentToDisplay = (int) (100 * GetPercentOfPositiveAnswersforChapter(chapter));
 
         }
 		else 
         {
-            shortAnswerMeaning = "negative";
+            shortAnswerMeaning = "unlucky";
             percentToDisplay = 100 - (int)(100 * GetPercentOfPositiveAnswersforChapter(chapter));
         }
 
