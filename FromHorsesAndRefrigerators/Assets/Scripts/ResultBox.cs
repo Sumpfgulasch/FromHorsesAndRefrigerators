@@ -11,7 +11,7 @@ public class ResultBox : MonoBehaviour
     public TextMeshProUGUI ShortAnswerInfoText;
     //public TextMeshProUGUI YourLongAnswer;
     public TextMeshProUGUI OtherLongAnswers;
-
+    public List<string> answerpreview;
     private float percentOfPositiveAnswers;
 
     // Start is called before the first frame update
@@ -65,7 +65,7 @@ public class ResultBox : MonoBehaviour
         {
             for (int i = 0; i < otherPeoplesRandomAnswers.Count; i++)
             {
-                OtherAnswers += (i + 1).ToString() + "." + otherPeoplesRandomAnswers[i] + "/n";
+                OtherAnswers += (i + 1).ToString() + "." + otherPeoplesRandomAnswers[i] + "\n";
             }
         }
 
@@ -78,15 +78,22 @@ public class ResultBox : MonoBehaviour
 	{
         //get all answers
         List<string> allAnswers = DataLoadingAndSaving.GetAllEntriesfromKey(chapter.ServerShortAnswerKey);
-
+        answerpreview = allAnswers;
         // convert to int list and add own answer
         List<int> answersAsInts = new List<int>();
         if (allAnswers != null)
         {
-            answersAsInts = (List<int>)allAnswers.Select(str => int.Parse(str));
+			foreach (var answer in allAnswers)
+            {
+                int result;
+                if (int.TryParse(answer, out  result))
+                {
+                    answersAsInts.Add(result);
+                }
+			}
+			
         }
 
-        answersAsInts.Add(int.Parse(chapter.PlayerShortAnswer));
         float sum = answersAsInts.Sum();
 
         return sum / (float)answersAsInts.Count;
